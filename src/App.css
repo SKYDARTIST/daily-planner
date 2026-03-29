@@ -424,3 +424,88 @@
 }
 
 .week-day.selected .week-day-count { background: rgba(255,255,255,0.35); }
+
+/* ── Stats Panel ─────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.stat-box {
+  background: #f7f7fb;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: #888;
+  font-weight: 600;
+}
+
+.today-progress { margin-bottom: 14px; }
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6c63ff, #ff6584);
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.heatmap-section { margin-top: 4px; }
+
+.heatmap-label {
+  font-size: 0.7rem;
+  color: #bbb;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.heat-cell {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: #f0f0f0;
+}
+
+.heat-1 { background: #c4b5fd; }
+.heat-2 { background: #a78bfa; }
+.heat-3 { background: #7c3aed; }
+.heat-4 { background: #4c1d95; }
