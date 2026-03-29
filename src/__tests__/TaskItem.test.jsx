@@ -1,0 +1,45 @@
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { describe, it, expect, vi } from 'vitest'
+import TaskItem from '../components/TaskItem'
+
+const task = { id: '1', title: 'Write tests', date: '2026-03-29', done: false }
+const doneTask = { ...task, done: true }
+
+describe('TaskItem', () => {
+  it('renders the task title', () => {
+    render(<TaskItem task={task} onToggle={() => {}} onDelete={() => {}} />)
+    expect(screen.getByText('Write tests')).toBeInTheDocument()
+  })
+
+  it('checkbox is unchecked for undone task', () => {
+    render(<TaskItem task={task} onToggle={() => {}} onDelete={() => {}} />)
+    expect(screen.getByRole('checkbox')).not.toBeChecked()
+  })
+
+  it('checkbox is checked for done task', () => {
+    render(<TaskItem task={doneTask} onToggle={() => {}} onDelete={() => {}} />)
+    expect(screen.getByRole('checkbox')).toBeChecked()
+  })
+
+  it('calls onToggle with task id when checkbox clicked', async () => {
+    const onToggle = vi.fn()
+    render(<TaskItem task={task} onToggle={onToggle} onDelete={() => {}} />)
+    await userEvent.click(screen.getByRole('checkbox'))
+    expect(onToggle).toHaveBeenCalledWith('1')
+  })
+
+  it('calls onDelete with task id when delete button clicked', async () => {
+    const onDelete = vi.fn()
+    render(<TaskItem task={task} onToggle={() => {}} onDelete={onDelete} />)
+    await userEvent.click(screen.getByRole('button', { name: '×' }))
+    expect(onDelete).toHaveBeenCalledWith('1')
+  })
+
+  it('done task has "done" CSS class', () => {
+    const { container } = render(
+      <TaskItem task={doneTask} onToggle={() => {}} onDelete={() => {}} />
+    )
+    expect(container.firstChild).toHaveClass('done')
+  })
+})
