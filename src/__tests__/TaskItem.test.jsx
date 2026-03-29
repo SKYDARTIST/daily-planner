@@ -54,4 +54,21 @@ describe('TaskItem', () => {
     )
     expect(container.firstChild).toHaveClass('done')
   })
+
+  it('clicking task body toggles notes area', async () => {
+    const task = { id: '1', title: 'Python Day 1', date: '2026-03-29', startTime: '', endTime: '', notes: '', done: false }
+    render(<TaskItem task={task} onToggle={() => {}} onDelete={() => {}} onUpdateNotes={() => {}} />)
+    expect(screen.queryByPlaceholderText(/Add notes/)).not.toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: 'Python Day 1' }))
+    expect(screen.getByPlaceholderText(/Add notes/)).toBeInTheDocument()
+  })
+
+  it('calls onUpdateNotes when typing in notes', async () => {
+    const onUpdateNotes = vi.fn()
+    const task = { id: '1', title: 'Study', date: '2026-03-29', startTime: '', endTime: '', notes: '', done: false }
+    render(<TaskItem task={task} onToggle={() => {}} onDelete={() => {}} onUpdateNotes={onUpdateNotes} />)
+    await userEvent.click(screen.getByRole('button', { name: 'Study' }))
+    await userEvent.type(screen.getByPlaceholderText(/Add notes/), 'x')
+    expect(onUpdateNotes).toHaveBeenCalledWith('1', 'x')
+  })
 })

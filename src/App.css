@@ -171,8 +171,8 @@
 /* Task item */
 .task-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 0;
   background: #fff;
   border-radius: 14px;
   padding: 14px 16px;
@@ -191,14 +191,6 @@
   cursor: pointer;
   accent-color: #6c63ff;
   flex-shrink: 0;
-}
-
-.task-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
 }
 
 .task-title {
@@ -275,4 +267,76 @@
     width: 100%;
     margin-left: 0;
   }
+}
+
+/* Notes area */
+.task-item-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.task-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.expand-icon {
+  font-size: 0.6rem;
+  color: #bbb;
+  flex-shrink: 0;
+}
+
+.task-notes-area {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.task-notes {
+  width: 100%;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: #333;
+  background: #fafafa;
+  resize: vertical;
+  outline: none;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+
+.task-notes:focus {
+  border-color: #6c63ff;
+  background: #fff;
+}
+
+/* Jump-to-date */
+.date-display-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.date-display-wrapper:hover .date-display {
+  color: #6c63ff;
+}
+
+.date-jump-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 50%;
 }

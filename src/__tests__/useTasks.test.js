@@ -23,6 +23,7 @@ describe('useTasks', () => {
       date: '2026-03-29',
       startTime: '',
       endTime: '',
+      notes: '',
       done: false,
     })
     expect(result.current.tasks[0].id).toBeTruthy()
@@ -95,5 +96,17 @@ describe('useTasks', () => {
     const { result } = renderHook(() => useTasks())
     expect(result.current.tasks).toHaveLength(1)
     expect(result.current.tasks[0].title).toBe('Pre-loaded')
+  })
+
+  it('updateNotes updates the notes field of a task', () => {
+    const { result } = renderHook(() => useTasks())
+    act(() => {
+      result.current.addTask('Python Day 1', '2026-03-29')
+    })
+    const id = result.current.tasks[0].id
+    act(() => {
+      result.current.updateNotes(id, 'Learned about variables and loops')
+    })
+    expect(result.current.tasks[0].notes).toBe('Learned about variables and loops')
   })
 })

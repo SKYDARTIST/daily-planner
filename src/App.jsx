@@ -33,7 +33,7 @@ function formatDisplayDate(dateStr) {
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState(todayStr)
-  const { addTask, toggleTask, deleteTask, getTasksByDate } = useTasks()
+  const { addTask, toggleTask, deleteTask, updateNotes, getTasksByDate } = useTasks()
 
   return (
     <div className="app">
@@ -44,12 +44,14 @@ export default function App() {
         onPrev={() => setSelectedDate(d => offsetDate(d, -1))}
         onNext={() => setSelectedDate(d => offsetDate(d, 1))}
         onToday={() => setSelectedDate(todayStr())}
+        onJump={setSelectedDate}
       />
       <TaskForm selectedDate={selectedDate} onAdd={addTask} />
       <TaskList
         tasks={getTasksByDate(selectedDate)}
         onToggle={toggleTask}
         onDelete={deleteTask}
+        onUpdateNotes={updateNotes}
       />
     </div>
   )
