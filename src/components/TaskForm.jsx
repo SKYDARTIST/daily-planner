@@ -28,27 +28,36 @@ export default function TaskForm({ selectedDate, onAdd }) {
         onChange={e => setTitle(e.target.value)}
         placeholder="Add a task..."
       />
-      <input
-        className="date-input"
-        type="date"
-        value={date}
-        onChange={e => setDate(e.target.value)}
-      />
-      <input
-        className="time-input"
-        type="time"
-        value={startTime}
-        onChange={e => setStartTime(e.target.value)}
-        aria-label="Start time"
-      />
-      <input
-        className="time-input"
-        type="time"
-        value={endTime}
-        onChange={e => setEndTime(e.target.value)}
-        aria-label="End time"
-      />
-      <button type="submit">Add</button>
+      <div className="task-form-row">
+        <input
+          className="date-input"
+          type="date"
+          value={date}
+          onChange={e => setDate(e.target.value)}
+          aria-label="Date"
+        />
+        <label className="time-label">
+          <span>Start</span>
+          <input
+            className="time-input"
+            type="time"
+            value={startTime}
+            onChange={e => setStartTime(e.target.value)}
+            aria-label="Start time"
+          />
+        </label>
+        <label className="time-label">
+          <span>End</span>
+          <input
+            className="time-input"
+            type="time"
+            value={endTime}
+            onChange={e => setEndTime(e.target.value)}
+            aria-label="End time"
+          />
+        </label>
+        <button type="submit">Add</button>
+      </div>
     </form>
   )
 }

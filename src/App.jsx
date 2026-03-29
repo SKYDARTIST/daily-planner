@@ -22,6 +22,15 @@ function offsetDate(dateStr, days) {
   return `${yy}-${mm}-${dd}`
 }
 
+function formatDisplayDate(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+  })
+}
+
 export default function App() {
   const [selectedDate, setSelectedDate] = useState(todayStr)
   const { addTask, toggleTask, deleteTask, getTasksByDate } = useTasks()
@@ -31,6 +40,7 @@ export default function App() {
       <h1 className="app-title">Daily Planner</h1>
       <DateNav
         date={selectedDate}
+        displayDate={formatDisplayDate(selectedDate)}
         onPrev={() => setSelectedDate(d => offsetDate(d, -1))}
         onNext={() => setSelectedDate(d => offsetDate(d, 1))}
         onToday={() => setSelectedDate(todayStr())}
