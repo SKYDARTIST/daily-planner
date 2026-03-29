@@ -1,16 +1,70 @@
-# React + Vite
+# Daily Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, minimal daily planner built with React. Add tasks with time slots, track your learning streaks, take notes, and stay focused with a built-in Pomodoro timer — all saved locally in your browser, no account needed.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Task management** — Add tasks with a date, start time, and end time
+- **Expandable notes** — Click any task to open a notes area (great for learning journals — track what u did on Day 2 of Python, etc.)
+- **Date navigation** — Prev/next arrows, Today button, or click the date to jump anywhere
+- **Weekly overview** — See your whole week at a glance with task count badges
+- **Streak & stats** — Daily streak counter, today's progress bar, and a 70-day activity heatmap
+- **Scratch pad** — Persistent free-form notepad for quick ideas and thoughts
+- **Focus timer** — Built-in 25/5 min Pomodoro timer with audio alert when done
+- **No backend** — Everything saves automatically in localStorage, works offline
+- **Mobile friendly** — Responsive layout, works on any screen size
 
-## React Compiler
+## Screenshot
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> Add a screenshot here after deploying
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 18 + Vite
+- Vitest + React Testing Library (47 tests)
+- CSS only — no UI framework
+- localStorage for persistence
+- Web Audio API for timer beep
+
+## Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/SKYDARTIST/daily-planner.git
+cd daily-planner
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Run tests
+npm run test:run
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Project Structure
+
+```
+src/
+├── hooks/
+│   ├── useTasks.js        # Task CRUD + localStorage sync
+│   ├── useStats.js        # Streak, progress, heatmap calculations
+│   └── useScratchPad.js   # Scratch pad persistence
+├── components/
+│   ├── DateNav.jsx        # Date navigation bar
+│   ├── TaskForm.jsx       # Add task form (title, date, time)
+│   ├── TaskItem.jsx       # Single task card with expandable notes
+│   ├── TaskList.jsx       # Task list + empty state
+│   ├── WeekStrip.jsx      # Weekly day overview
+│   ├── StatsPanel.jsx     # Streak, progress bar, heatmap
+│   ├── ScratchPad.jsx     # Free-form notepad
+│   └── FocusTimer.jsx     # Pomodoro timer with SVG ring
+└── __tests__/             # Test files for all components and hooks
+```
+
+## Built by
+
+[@AakashBuild](https://x.com/AakashBuild)
