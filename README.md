@@ -5,14 +5,15 @@ A clean, minimal daily planner built with React. Add tasks with time slots, trac
 ## Features
 
 - **Task management** — Add tasks with a date, start time, and end time
-- **Expandable notes** — Click any task to open a notes area (great for learning journals — track what u did on Day 2 of Python, etc.)
+- **Expandable notes** — Click any task to open a notes area (great for learning journals — go back to Day 2 of Python and see exactly what you did)
 - **Date navigation** — Prev/next arrows, Today button, or click the date to jump anywhere
-- **Weekly overview** — See your whole week at a glance with task count badges
+- **Weekly overview** — See your whole week at a glance with task count badges, click any day to jump
 - **Streak & stats** — Daily streak counter, today's progress bar, and a 70-day activity heatmap
 - **Scratch pad** — Persistent free-form notepad for quick ideas and thoughts
 - **Focus timer** — Built-in 25/5 min Pomodoro timer with audio alert when done
+- **Smart greeting** — Good morning / afternoon / evening header based on time of day
 - **No backend** — Everything saves automatically in localStorage, works offline
-- **Mobile friendly** — Responsive layout, works on any screen size
+- **Mobile friendly** — Responsive two-column layout on desktop, single column on mobile
 
 ## Screenshot
 
@@ -20,11 +21,12 @@ A clean, minimal daily planner built with React. Add tasks with time slots, trac
 
 ## Tech Stack
 
-- React 18 + Vite
-- Vitest + React Testing Library (47 tests)
-- CSS only — no UI framework
-- localStorage for persistence
+- React 18 + Vite 8
+- Vitest + React Testing Library (47 tests, 8 test files)
+- CSS only — no UI framework, glassmorphism cards
+- localStorage for all persistence
 - Web Audio API for timer beep
+- SVG for calendar graphic and focus timer ring
 
 ## Getting Started
 

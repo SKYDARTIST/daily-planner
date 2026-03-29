@@ -5,7 +5,7 @@ A React daily planner app. Users add tasks with dates and times, write notes per
 
 ## Tech stack
 - React 18 + Vite 8
-- Vitest + @testing-library/react (47 tests across 7 test files)
+- Vitest + @testing-library/react (47 tests across 8 test files)
 - CSS only — no Tailwind, no UI library
 - localStorage for all persistence (no backend, no database)
 
@@ -69,9 +69,11 @@ src/
 - Mobile breakpoint at 768px (single column). Desktop is a CSS grid: `1fr 340px`.
 
 ## Layout
-- Desktop: two-column grid. Left = `.planner`, Right = `.sidebar` (sticky).
-- Background: two animated CSS blobs (`.blob-1` purple, `.blob-2` pink).
-- Sidebar cards use `.sidebar-card` class with glassmorphism (backdrop-filter blur).
+- Full-width `.app-header` sits above the grid — contains greeting, title, and calendar SVG graphic.
+- Below header: two-column CSS grid (`1fr 340px`). Left = `.planner`, Right = `.sidebar` (sticky).
+- Background: two fixed animated CSS blobs (`.blob-1` purple, `.blob-2` pink).
+- Sidebar cards and header use `.sidebar-card` / `.app-header-inner` — glassmorphism style (white bg + backdrop-filter blur).
+- `getGreeting()` in App.jsx returns "Good morning/afternoon/evening" based on `new Date().getHours()`.
 
 ## GitHub
 - Repo: https://github.com/SKYDARTIST/daily-planner
