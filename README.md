@@ -17,7 +17,8 @@ A clean, minimal daily planner built with React. Add tasks with time slots, trac
 
 ## Screenshot
 
-> Add a screenshot here after deploying
+> <img width="1464" height="728" alt="Screenshot 2026-03-29 at 2 51 13 PM" src="https://github.com/user-attachments/assets/1783b20d-bd3f-4b0b-8ef3-41d572c6d4b5" />
+
 
 ## Tech Stack
 
