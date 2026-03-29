@@ -15,6 +15,10 @@ A clean, minimal daily planner built with React. Add tasks with time slots, trac
 - **No backend** — Everything saves automatically in localStorage, works offline
 - **Mobile friendly** — Responsive two-column layout on desktop, single column on mobile
 
+## Live Demo
+
+[daily-planner-aakash.vercel.app](https://daily-planner-aakash.vercel.app)
+
 ## Screenshot
 
 > <img width="1464" height="728" alt="Screenshot 2026-03-29 at 2 51 13 PM" src="https://github.com/user-attachments/assets/1783b20d-bd3f-4b0b-8ef3-41d572c6d4b5" />
