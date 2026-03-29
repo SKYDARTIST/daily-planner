@@ -16,7 +16,7 @@ describe('TaskList', () => {
 
   it('shows empty state when no tasks', () => {
     render(<TaskList tasks={[]} onToggle={() => {}} onDelete={() => {}} />)
-    expect(screen.getByText('No tasks for this day.')).toBeInTheDocument()
+    expect(screen.getByText('No tasks for this day')).toBeInTheDocument()
   })
 
   it('renders one checkbox per task', () => {
