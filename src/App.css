@@ -509,3 +509,111 @@
 .heat-2 { background: #a78bfa; }
 .heat-3 { background: #7c3aed; }
 .heat-4 { background: #4c1d95; }
+
+/* ── Scratch Pad ─────────────────────────────────── */
+.scratchpad-input {
+  width: 100%;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  font-family: inherit;
+  color: #333;
+  background: #fafafa;
+  resize: vertical;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.15s;
+  min-height: 100px;
+}
+
+.scratchpad-input:focus {
+  border-color: #6c63ff;
+  background: #fff;
+}
+
+/* ── Focus Timer ─────────────────────────────────── */
+.timer-modes {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 6px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #aaa;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mode-btn.active {
+  border-color: #6c63ff;
+  color: #6c63ff;
+  background: #f0eeff;
+}
+
+.timer-ring-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  width: 96px;
+  height: 96px;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 7;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: #6c63ff;
+  stroke-width: 7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.9s linear;
+}
+
+.timer-time {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.5px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.timer-btn {
+  flex: 1;
+  padding: 9px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.timer-btn:hover { background: #f4f4f4; }
+
+.timer-btn.primary {
+  background: #6c63ff;
+  border-color: #6c63ff;
+  color: #fff;
+}
+
+.timer-btn.primary:hover { background: #5a52d5; }
