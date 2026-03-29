@@ -15,7 +15,17 @@ describe('TaskForm', () => {
     render(<TaskForm selectedDate="2026-03-29" onAdd={onAdd} />)
     await userEvent.type(screen.getByPlaceholderText('Add a task...'), 'New task')
     await userEvent.click(screen.getByRole('button', { name: 'Add' }))
-    expect(onAdd).toHaveBeenCalledWith('New task', '2026-03-29')
+    expect(onAdd).toHaveBeenCalledWith('New task', '2026-03-29', '', '')
+  })
+
+  it('passes start and end time to onAdd when filled', async () => {
+    const onAdd = vi.fn()
+    render(<TaskForm selectedDate="2026-03-29" onAdd={onAdd} />)
+    await userEvent.type(screen.getByPlaceholderText('Add a task...'), 'Meeting')
+    await userEvent.type(screen.getByLabelText('Start time'), '09:00')
+    await userEvent.type(screen.getByLabelText('End time'), '10:00')
+    await userEvent.click(screen.getByRole('button', { name: 'Add' }))
+    expect(onAdd).toHaveBeenCalledWith('Meeting', '2026-03-29', '09:00', '10:00')
   })
 
   it('clears the title input after submit', async () => {

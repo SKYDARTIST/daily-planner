@@ -126,9 +126,20 @@
   flex-shrink: 0;
 }
 
-.task-title {
+.task-body {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.task-title {
   font-size: 0.95rem;
+}
+
+.task-time {
+  font-size: 0.78rem;
+  color: #888;
 }
 
 .task-item.done {

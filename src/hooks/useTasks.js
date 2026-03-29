@@ -10,10 +10,10 @@ export default function useTasks() {
     localStorage.setItem('planner-tasks', JSON.stringify(tasks))
   }, [tasks])
 
-  function addTask(title, date) {
+  function addTask(title, date, startTime = '', endTime = '') {
     setTasks(prev => [
       ...prev,
-      { id: crypto.randomUUID(), title, date, done: false },
+      { id: crypto.randomUUID(), title, date, startTime, endTime, done: false },
     ])
   }
 

@@ -21,9 +21,23 @@ describe('useTasks', () => {
     expect(result.current.tasks[0]).toMatchObject({
       title: 'Buy groceries',
       date: '2026-03-29',
+      startTime: '',
+      endTime: '',
       done: false,
     })
     expect(result.current.tasks[0].id).toBeTruthy()
+  })
+
+  it('addTask stores startTime and endTime when provided', () => {
+    const { result } = renderHook(() => useTasks())
+    act(() => {
+      result.current.addTask('Morning run', '2026-03-29', '07:00', '08:00')
+    })
+    expect(result.current.tasks[0]).toMatchObject({
+      title: 'Morning run',
+      startTime: '07:00',
+      endTime: '08:00',
+    })
   })
 
   it('toggleTask flips the done status', () => {

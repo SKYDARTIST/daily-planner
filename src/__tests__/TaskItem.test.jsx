@@ -36,6 +36,18 @@ describe('TaskItem', () => {
     expect(onDelete).toHaveBeenCalledWith('1')
   })
 
+  it('shows formatted time range when startTime and endTime are set', () => {
+    const timedTask = { id: '1', title: 'Meeting', date: '2026-03-29', startTime: '09:00', endTime: '10:30', done: false }
+    render(<TaskItem task={timedTask} onToggle={() => {}} onDelete={() => {}} />)
+    expect(screen.getByText('9:00 AM → 10:30 AM')).toBeInTheDocument()
+  })
+
+  it('shows no time element when startTime and endTime are empty', () => {
+    const noTimeTask = { id: '1', title: 'Task', date: '2026-03-29', startTime: '', endTime: '', done: false }
+    render(<TaskItem task={noTimeTask} onToggle={() => {}} onDelete={() => {}} />)
+    expect(screen.queryByText(/AM|PM/)).not.toBeInTheDocument()
+  })
+
   it('done task has "done" CSS class', () => {
     const { container } = render(
       <TaskItem task={doneTask} onToggle={() => {}} onDelete={() => {}} />
